@@ -1,5 +1,8 @@
 #include <iostream>
 #include <cstdlib>
+#include <ostream>
+#include <fstream>
+
 using namespace std;
 
 #define SIZE 8
@@ -9,7 +12,7 @@ using namespace std;
 int main()
 {
     cout << "Wecome you in my Chess GAME!\n\n";
-    cout << "The DECK:\n\n ";
+    cout << "X - White\n- is black\n";
 
     while(1)
     {
@@ -24,7 +27,7 @@ int main()
                 {
                     cout << "-";
                 } else {
-                    cout << "x";
+                    cout << "X";
                 }
                 cout << "     ";
             }
@@ -33,8 +36,17 @@ int main()
 
          char c = cin.get();
          if(c == 27)
-            exit(0);
-         
+            break;       
     }
+
+    ofstream myfile("/home/alexeyder/Documents/progs/Chess/Website.html");
+
+    myfile.open ("/home/alexeyder/Documents/progs/Chess/Website.html");
+    myfile << "<!DOCTYPE html><html><head></head><body>" << endl;
+    myfile << "<h1>Wecome you in my Chess GAME!\n\n</h1>";
+
+    myfile << "</body></html>";
+    myfile.close();
+
     return 0;
 }

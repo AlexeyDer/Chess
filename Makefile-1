@@ -1,0 +1,2 @@
+privet:
+	g++ chess.cpp -o main

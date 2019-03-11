@@ -1,3 +1,5 @@
 *.o
 .main.c.swp
 #main.c#
+*.txt
+main

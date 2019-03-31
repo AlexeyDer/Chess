@@ -41,7 +41,8 @@ int main()
 
         //   }
 
-        char c = cin.get();if (c == 27) {
+        char c = cin.get();
+        if (c == 27) {
             myfile.close();
             break;
         }

@@ -6,8 +6,8 @@
 #include <iostream>
 #include <ostream>
 using namespace std;
+#define size 8
 
-#define SIZE 8
-void PrintBoard(char** deck, int size_i, int size_j);
+void PrintBoard(char deck[size][size]);
 
 #endif

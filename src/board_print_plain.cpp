@@ -1,11 +1,13 @@
 #include "board_print_plain.h"
 
-void PrintBoard(char** deck, int size_i, int size_j)
+void PrintBoard(char deck[size][size])
 {
-    ofstream myfile("/home/alexeyder/Documents/progs/Chess/hello.txt");
-    for (int i = 0; i < size_i; i++) {
-        for (int j = 0; j < size_j; j++)
+    ofstream myfile("/home/alexeyder/Documents/progs/Chess/hey.txt");
+    myfile << "A B C D E F G H\n";
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++)
             myfile << deck[i][j] << " ";
+        myfile << i + 1 << endl;
     }
-    myfile << endl;
+    myfile.close();
 }

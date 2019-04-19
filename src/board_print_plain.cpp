@@ -2,7 +2,7 @@
 
 void PrintBoard(char deck[S][S])
 {
-    ofstream myfile("/home/alexeyder/Documents/progs/Chess/output.txt");
+    ofstream myfile("output.txt");
     myfile << "BIG is white, SMALL is black!\n";
     myfile << "  A B C D E F G H\n";
     for (int i = 0; i < S; i++) {

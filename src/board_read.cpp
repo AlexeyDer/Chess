@@ -3,14 +3,12 @@
 void readTxt()
 {
     string line;
-    ifstream in("/home/alexeyder/Documents/progs/Chess/output.txt");
+    ifstream in("output.txt");
 
-    if (in.is_open())
-    {
-        while (getline(in, line))
-        {
+    if (in.is_open()) {
+        while (getline(in, line)) {
             cout << line << endl;
         }
     }
-    in.close(); 
+    in.close();
 }

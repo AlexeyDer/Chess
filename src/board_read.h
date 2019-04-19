@@ -3,6 +3,4 @@
 #include "board.h"
 #include <fstream>
 #include <string>
-
-
 #endif

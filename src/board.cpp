@@ -22,3 +22,14 @@ int check_symbol(char a[], int n)
     }
     return -1;
 }
+
+int check_reg(char one, char two)
+{
+    if ((one <= 'Z' && one >= 'A') && (two <= 'Z' && two >= 'A')) {
+        return 0;
+    }
+    if ((one <= 'z' && one >= 'a') && (two <= 'z' && two >= 'a')) {
+        return 0;
+    }
+    return 1;
+}

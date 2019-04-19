@@ -13,6 +13,12 @@ int main()
 
     PrintBoard(deck);
 
-  
+    int k = 0;
+    while (1) {
+        Move(deck, k);
+        PrintBoard(deck);
+        k += 2;
+    }
+
     return 0;
 }

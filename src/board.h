@@ -15,6 +15,5 @@ using namespace std;
 void readTxt();
 void PrintBoard(char deck[S][S]);
 void Move(char deck[8][8], int l);
-void CheckInput(char a[], int &x1, int &x2, int &y1, int &y2);
-
+void CheckInput(char a[], int& x1, int& x2, int& y1, int& y2);
 #endif

@@ -10,6 +10,7 @@ using namespace std;
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <stdlib.h>
 
 void readTxt();
 void PrintBoard(char deck[S][S]);

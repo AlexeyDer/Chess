@@ -18,6 +18,16 @@ int wPawn(char deck[8][8], int move[4])
         return 1;
 }
 
+int bPawn(char deck[8][8], int move[4])
+{
+    if ((deck[move[3]][move[2]] == ' ') && (deck[move[1]][move[0]] == 'P')
+        && (move[0] == move[2])
+        && (((move[1] - move[3]) == 1) || ((move[1] - move[3]) == 2)))
+        return 0;
+    else
+        return 1;
+}
+
 void Move(char deck[8][8], int l, int step)
 {
     char move[5];

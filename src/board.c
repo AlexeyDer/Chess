@@ -8,10 +8,23 @@ void Fill(char move[5], int moveint[4])
     moveint[3] = move[4] - 49;
 }
 
+int wPawn(char deck[8][8], int move[4])
+{
+    if ((deck[move[3]][move[2]] == ' ') && (deck[move[1]][move[0]] == 'p')
+        && (move[0] == move[2])
+        && (((move[3] - move[1]) == 1) || ((move[3] - move[1]) == 2)))
+        return 0;
+    else
+        return 1;
+}
+
 void Move(char deck[8][8], int l, int step)
 {
     char move[5];
     int moveInt[4];
+
+    if (l % 2) {
+    }
 
     if (!step) {
         printf("%d.", ++l);

@@ -155,6 +155,16 @@ int Horse(char deck[8][8], char move[5], int moveInt[4])
     return 0;
 }
 
+int King(char deck[8][8], int moveInt[4])
+{
+    if (((abs(moveInt[3] - moveInt[1]) == 1)
+         || (abs(moveInt[3] - moveInt[1]) == 0))
+        && ((abs(moveInt[3] - moveInt[1]) == 1)
+            || (abs(moveInt[3] - moveInt[1]) == 0)))
+        return 1;
+    return 0;
+}
+
 int Move(char deck[8][8], int l)
 {
     char move[5];
@@ -184,6 +194,10 @@ int Move(char deck[8][8], int l)
                     (deck[moveInt[1]][moveInt[0]] == 'h')
                     && Horse(deck, move, moveInt))
                 makeMove(deck, moveInt);
+            else if (
+                    (deck[moveInt[1]][moveInt[0]] == 'k')
+                    && King(deck, moveInt))
+                makeMove(deck, moveInt);
             else
                 return 1;
 
@@ -205,6 +219,10 @@ int Move(char deck[8][8], int l)
             else if (
                     (deck[moveInt[1]][moveInt[0]] == 'H')
                     && Horse(deck, move, moveInt))
+                makeMove(deck, moveInt);
+            else if (
+                    (deck[moveInt[1]][moveInt[0]] == 'K')
+                    && King(deck, moveInt))
                 makeMove(deck, moveInt);
             else
                 return 1;

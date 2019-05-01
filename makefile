@@ -1,24 +1,28 @@
 CFLAGS = -Wall -Werror 
 OBJ = g++ -c $< -o $@ $(CFLAGS)
+TOBJ = build/main_test.o build/board.o  build/PrintBoard.o
+
 
 .PHONY: clean
 
 all:bin build bin/main.exe 
 
-bin/main.exe:  build/main.o build/board_print_plain.o build/board.o build/board_read.o
+# test: bin/compile_test
+
+bin/main.exe:  build/main.o build/board.o  build/PrintBoard.o
 	g++ $^ -o $@ $(CFLAGS)
 
-build/board_print_plain.o: src/board_print_plain.cpp src/board_print_plain.h
+build/PrintBoard.o: src/PrintBoard.c src/PrintBoard.h
 	$(OBJ)
 
-build/board_read.o: src/board_read.cpp src/board_read.h
+build/board.o: src/board.c src/board.h
 	$(OBJ)
 
-build/board.o: src/board.cpp src/board.h
+build/main.o: src/main.c
 	$(OBJ)
 
-build/main.o: src/main.cpp
-	$(OBJ)
+# bin/compile_test: $(TOBJ)
+#     $(OBJ)  $(CFLAG) $(TOBJ) bin/compile_test
 
 bin: 
 	mkdir bin

@@ -21,6 +21,29 @@ int check_figure(char deck[8][8], int move[4])
         return 0;
 }
 
+///////////////////////////////pawn
+int wPawn(char deck[8][8], int move[4])
+{
+    if ((deck[move[3]][move[2]] == ' ') && (deck[move[1]][move[0]] == 'p')
+        && (move[0] == move[2])
+        && ((abs(move[3] - move[1]) == 1) || (abs(move[3] - move[1]) == 2)))
+        return 0;
+    else
+        return 1;
+}
+
+int bPawn(char deck[8][8], int move[4])
+{
+    if ((deck[move[3]][move[2]] == ' ') && (deck[move[1]][move[0]] == 'P')
+        && (move[0] == move[2])
+        && ((abs(move[1] - move[3]) == 1) || (abs(move[1] - move[3]) == 2)))
+        return 0;
+    else
+        return 1;
+}
+//////////////////////////////////////////////////////////////////////////////////////
+//// 0 1 2 3
+//// a 2 a 2
 ///////////////Rook
 int Rook(char deck[8][8], int moveInt[4])
 {
@@ -54,29 +77,50 @@ int Rook(char deck[8][8], int moveInt[4])
     return 0;
 }
 
-///////////////////////////////pawn
-int wPawn(char deck[8][8], int move[4])
+int Queen(char deck[8][8], int moveInt[4])
 {
-    if ((deck[move[3]][move[2]] == ' ') && (deck[move[1]][move[0]] == 'p')
-        && (move[0] == move[2])
-        && ((abs(move[3] - move[1]) == 1) || (abs(move[3] - move[1]) == 2)))
-        return 0;
-    else
-        return 1;
-}
+    int Counter = 0;
+    int i, j;
 
-int bPawn(char deck[8][8], int move[4])
-{
-    if ((deck[move[3]][move[2]] == ' ') && (deck[move[1]][move[0]] == 'P')
-        && (move[0] == move[2])
-        && ((abs(move[1] - move[3]) == 1) || (abs(move[1] - move[3]) == 2)))
-        return 0;
-    else
-        return 1;
+    if ((moveInt[0] == moveInt[2]) || (moveInt[1] == moveInt[3])
+        || (abs(moveInt[0] - moveInt[2]) == abs(moveInt[1] - moveInt[3]))) {
+        if (moveInt[0] == moveInt[2])
+            for (i = moveInt[1] + 1; i < moveInt[3]; i++) {
+                if (deck[i][moveInt[0]] != ' ') {
+                    if (abs(deck[moveInt[1]][moveInt[0]] - deck[i][moveInt[0]])
+                        > 17)
+                        deck[i][moveInt[0]] = ' ';
+                    else
+                        Counter = 1;
+                }
+            }
+        else if (moveInt[1] == moveInt[3])
+            for (j = moveInt[0] + 1; j < moveInt[2]; j++) {
+                if (deck[moveInt[1]][j] != ' ') {
+                    if (abs(deck[moveInt[1]][moveInt[0]] - deck[moveInt[1]][j])
+                        > 17)
+                        deck[moveInt[1]][j] = ' ';
+                    else
+                        Counter = 1;
+                }
+            }
+        if (abs(moveInt[0] - moveInt[2]) == abs(moveInt[1] - moveInt[3])) {
+            for (i = moveInt[1] + 1, j = moveInt[0] + 1; i < moveInt[3];
+                 i++, j++) {
+                if (deck[i][j] != ' ') {
+                    if (abs(deck[moveInt[1]][moveInt[0]] - deck[i][j]) > 17)
+                        deck[i][j] = ' ';
+                    else
+                        Counter = 1;
+                }
+            }
+        }
+        if (Counter < 1 || Counter > 1)
+            return 1;
+    }
+
+    return 0;
 }
-//////////////////////////////////////////////////////////////////////////////////////
-//// 0 1 2 3
-//// a 2 a 2
 
 int Move(char deck[8][8], int l)
 {
@@ -95,6 +139,10 @@ int Move(char deck[8][8], int l)
                     (deck[moveInt[1]][moveInt[0]] == 'r')
                     && Rook(deck, moveInt))
                 makeMove(deck, moveInt);
+            else if (
+                    (deck[moveInt[1]][moveInt[0]] == 'q')
+                    && Queen(deck, moveInt))
+                makeMove(deck, moveInt);
             else
                 return 1;
 
@@ -104,6 +152,10 @@ int Move(char deck[8][8], int l)
             else if (
                     (deck[moveInt[1]][moveInt[0]] == 'R')
                     && Rook(deck, moveInt))
+                makeMove(deck, moveInt);
+            else if (
+                    (deck[moveInt[1]][moveInt[0]] == 'Q')
+                    && Queen(deck, moveInt))
                 makeMove(deck, moveInt);
             else
                 return 1;

@@ -2,7 +2,7 @@
 
 void PrintBoard(char deck[S][S])
 {
-    printf("BIG is black, SMALL is white!\n");
+    printf("BIG is White, SMALL is black!\n");
     printf("  A B C D E F G H\n");
     for (int i = 0; i < S; i++) {
         printf("%d ", i + 1);

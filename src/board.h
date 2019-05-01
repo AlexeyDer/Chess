@@ -19,7 +19,8 @@ int wPawn(char deck[8][8], int move[4]);
 int bPawn(char deck[8][8], int move[4]);
 int Rook(char deck[8][8], int moveInt[4]);
 int Queen(char deck[8][8], int moveInt[4]);
-int Horse(char deck[8][8], char move[5], int moveInt[4]);
+int Horse(char deck[8][8], int moveInt[4]);
+int King(char deck[8][8], int moveInt[4]);
 
 int check_figure(char deck[8][8], int move[4]);
 

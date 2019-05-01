@@ -145,7 +145,7 @@ int Bishop(char deck[8][8], char move[5], int moveInt[4]) //
     return 0;
 }
 
-int Horse(char deck[8][8], char move[5], int moveInt[4])
+int Horse(char deck[8][8], int moveInt[4])
 {
     if (((abs(moveInt[1] - moveInt[3]) == 1)
          && (abs(moveInt[0] - moveInt[2]) == 2))
@@ -192,7 +192,7 @@ int Move(char deck[8][8], int l)
                 makeMove(deck, moveInt);
             else if (
                     (deck[moveInt[1]][moveInt[0]] == 'h')
-                    && Horse(deck, move, moveInt))
+                    && Horse(deck, moveInt))
                 makeMove(deck, moveInt);
             else if (
                     (deck[moveInt[1]][moveInt[0]] == 'k')
@@ -218,7 +218,7 @@ int Move(char deck[8][8], int l)
                 makeMove(deck, moveInt);
             else if (
                     (deck[moveInt[1]][moveInt[0]] == 'H')
-                    && Horse(deck, move, moveInt))
+                    && Horse(deck, moveInt))
                 makeMove(deck, moveInt);
             else if (
                     (deck[moveInt[1]][moveInt[0]] == 'K')

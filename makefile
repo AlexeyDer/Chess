@@ -3,7 +3,7 @@ OBJ = gcc -c $< -o $@ $(CFLAGS)
 TOBJ = build/main_test.o build/board.o  build/PrintBoard.o 
 
 
-.PHONY: clean
+.PHONY: clean all bin build bin/tests.exe
 
 all:bin build bin/main.exe bin/tests.exe
 
@@ -26,12 +26,12 @@ build/main_test.o: test/main.c thirdparty/ctest.h src/board.h src/PrintBoard.h
 	gcc $(CFLAG) -I thirdparty -I src -c test/main.c -o build/main_test.o
 
 bin: 
-	mkdir bin
+	mkdir -p bin
 build:
-	mkdir build
+	mkdir -p build
      
 clean:
-	rm build/*.o
-	rm bin/*.exe
+	rm -rf build/*.o
+	rm -rf bin/*.exe
     
 

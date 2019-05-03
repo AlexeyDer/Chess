@@ -15,8 +15,7 @@ int CheckInput(int move[]);
 void Fill(char move[5], int moveint[4]);
 void makeMove(char deck[S][S], int move[]);
 
-int wPawn(char deck[8][8], int move[4]);
-int bPawn(char deck[8][8], int move[4]);
+int Pawn(char deck[8][8], int move[4]);
 int Rook(char deck[8][8], int moveInt[4]);
 int Queen(char deck[8][8], int moveInt[4]);
 int Horse(char deck[8][8], int moveInt[4]);

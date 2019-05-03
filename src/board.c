@@ -22,29 +22,20 @@ int check_figure(char deck[8][8], int move[4])
 }
 
 ///////////////////////////////pawn
-int wPawn(char deck[8][8], int move[4])
-{
-    if ((deck[move[3]][move[2]] == ' ') && (deck[move[1]][move[0]] == 'p')
-        && (move[0] == move[2])
-        && ((abs(move[3] - move[1]) == 1) || (abs(move[3] - move[1]) == 2)))
-        return 0;
-    else
-        return 1;
-}
 
-int bPawn(char deck[8][8], int move[4])
+int Pawn(char deck[8][8], int move[4])
 {
-    if ((deck[move[3]][move[2]] == ' ') && (deck[move[1]][move[0]] == 'P')
-        && (move[0] == move[2])
+    if ((deck[move[3]][move[2]] == ' ') && (move[0] == move[2])
         && ((abs(move[1] - move[3]) == 1) || (abs(move[1] - move[3]) == 2)))
-        return 0;
-    else
         return 1;
+    else
+        return 0;
 }
 //////////////////////////////////////////////////////////////////////////////////////
 //// 0 1 2 3
 //// a 2 a 2
 ///////////////Rook
+
 int Rook(char deck[8][8], int moveInt[4])
 {
     int Counter = 0;
@@ -176,7 +167,7 @@ int Move(char deck[8][8], int l)
 
     if (check_figure(deck, moveInt) && CheckInput(moveInt)) {
         if (l % 2) {
-            if (!wPawn(deck, moveInt))
+            if ((deck[moveInt[1]][moveInt[0]] == 'p') && Pawn(deck, moveInt))
                 makeMove(deck, moveInt);
             else if (
                     (deck[moveInt[1]][moveInt[0]] == 'r')
@@ -202,7 +193,7 @@ int Move(char deck[8][8], int l)
                 return 1;
 
         } else {
-            if (!bPawn(deck, moveInt))
+            if ((deck[moveInt[1]][moveInt[0]] == 'P') && Pawn(deck, moveInt))
                 makeMove(deck, moveInt);
             else if (
                     (deck[moveInt[1]][moveInt[0]] == 'R')

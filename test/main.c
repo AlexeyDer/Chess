@@ -29,7 +29,7 @@ CTEST(check_Figure, Incorrect)
     int move[4];
     Fill("a3-a4", move);
     int res = check_figure(deck, move);
-    int a = 1;
+    int a = 0;
     ASSERT_EQUAL(a, res);
 }
 
@@ -51,7 +51,7 @@ CTEST(pawn_move, Incorrect)
     if (check_figure(deck, move)
         && ((deck[move[1]][move[0]] == 'p') || (deck[move[1]][move[0]] == 'P')))
         res = Pawn(deck, move);
-    int a = 1;
+    int a = 0;
     ASSERT_EQUAL(a, res);
 }
 
@@ -73,7 +73,7 @@ CTEST(PAWN_move, Incorrect)
     if (check_figure(deck, move)
         && ((deck[move[1]][move[0]] == 'p') || (deck[move[1]][move[0]] == 'P')))
         res = Pawn(deck, move);
-    int a = 1;
+    int a = 0;
     ASSERT_EQUAL(a, res);
 }
 
@@ -91,7 +91,7 @@ CTEST(check_input, Incorrect)
     int move[4], res = 0;
     Fill("a1-a9", move);
     res = CheckInput(move);
-    int a = 1;
+    int a = 0;
     ASSERT_EQUAL(a, res);
 }
 
@@ -109,7 +109,7 @@ CTEST(check_input_2, Incorrect)
     int move[4], res = 0;
     Fill("a0-a8", move);
     res = CheckInput(move);
-    int a = 1;
+    int a = 0;
     ASSERT_EQUAL(a, res);
 }
 

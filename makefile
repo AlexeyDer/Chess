@@ -3,9 +3,12 @@ OBJ = gcc -c $< -o $@ $(CFLAGS)
 TOBJ = build/main_test.o build/board.o  build/PrintBoard.o 
 
 
-.PHONY: clean all bin build bin/tests.exe
+.PHONY: clean all bin build test
 
-all:bin build bin/main.exe bin/tests.exe
+all:bin build bin/main.exe test
+
+test: bin/tests.exe
+	bin/tests.exe
 
 bin/main.exe:  build/main.o build/board.o  build/PrintBoard.o
 	gcc $^ -o $@ $(CFLAGS)
